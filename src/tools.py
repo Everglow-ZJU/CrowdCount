@@ -44,7 +44,7 @@ class DataTools(object):
 
         res_dic['img'] = np.array(img_list)
         res_dic['dense'] = np.array(dense_list)
-        savemat(os.path.join(r'E:\code\kesci\crowdcount\dataset\denselevel', 'dense_gt.mat'), res_dic)
+        savemat(os.path.join(save_dir, 'dense_gt.mat'), res_dic)
 
     # 创建只包含1 - 99人头数的图片标签
     def create_crowLabel(self):
