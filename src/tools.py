@@ -14,7 +14,7 @@ from scipy.io import savemat
 
 json_dir = '../dataset/train/Mydata/temp/json'
 dense_label = '../result/dense_level.csv'
-save_dir = '../dataset/denselevel'
+save_dir = '../dataset/denselevel/'
 
 
 class DataTools(object):
@@ -84,4 +84,5 @@ class DataTools(object):
         savemat(os.path.join(save_dir, 'crow_gt.mat'), res_dic)
 
 
-DataTools().create_denselevelLabel()
+#DataTools().create_denselevelLabel()
+DataTools().create_crowLabel()

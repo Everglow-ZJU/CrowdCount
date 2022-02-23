@@ -48,8 +48,7 @@ def get_callbacks():
     """
     early_stopping = EarlyStopping(monitor='val_loss', patience=20)
     reduce_lr = ReduceLROnPlateau(monitor='loss', factor=0.1, patience=5, min_lr=1e-7, verbose=True)    
-    model_checkpoint = ModelCheckpoint('../models/mscnn_model_weights.h5'), monitor='val_loss',
-                                       verbose=True, save_best_only=True, save_weights_only=True)
+    model_checkpoint = ModelCheckpoint('../models/mscnn_model_weights.h5',monitor='val_loss',verbose=True,save_best_only=True,save_weights_only=True)
     callbacks = [early_stopping, reduce_lr, model_checkpoint, TensorBoard(log_dir='../tensorlog')]
     return callbacks
 
