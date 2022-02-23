@@ -11,8 +11,8 @@ import os
 import glob
 import json
 from scipy.io import savemat
-
-json_dir = '../dataset/train/Mydata/temp/json'
+current_path = os.path.dirname(__file__)
+json_dir = '../dataset/train/Mydata/temp/json/'
 dense_label = '../result/dense_level.csv'
 save_dir = '../dataset/denselevel/'
 
@@ -54,7 +54,9 @@ class DataTools(object):
         dense_list = []
         potints_list = []
 
-        json_files = glob.glob(json_dir + r'\*.json')
+        #json_files = glob.glob(json_dir + r'\*.json')
+        #json_files=[json_dir+"10a2.json"]
+        json_files=[current_path+"/10a2.json"]
         for json_file in tqdm.tqdm(json_files):
             img_name, pnts = self.json_parese(json_file)
             crow_cnt = len(pnts)
@@ -81,7 +83,7 @@ class DataTools(object):
         res_dic['count'] = np.array(count_temp)
         res_dic['dense'] = np.array(dense_list)
         res_dic['points'] = np.array(point_temp)
-        savemat(os.path.join(save_dir, 'crow_gt.mat'), res_dic)
+        savemat(os.path.join(current_path,save_dir+ 'crow_gt.mat'), res_dic)
 
 
 #DataTools().create_denselevelLabel()
